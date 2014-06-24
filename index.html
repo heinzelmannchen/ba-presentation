@@ -117,10 +117,82 @@
 
 					<section>
 						<h3>Nodejs</h3>
+						<ul>
+							<li>JavaScript Runtime basierend auf V8</li>
+							<li>Modularisiert</li>
+							<li>Packagemanager</li>
+						</ul>
 					</section>
 
 					<section>
-						<h3>Promise</h3>
+						<h3>Callbacks</h3>
+						<pre><code data-trim>
+doSomething(function(error) {
+    if (error) {
+        //...
+    } else {
+        doSomethingElse(function(error) {
+            if (error) {
+                //...
+            } else {
+                doSomethingElse2(function(error) {
+                    if (error) {
+                        //...
+                    } else {
+                        //...
+                    }
+                });
+            }
+        });
+    }
+});
+						</code></pre>
+					</section>
+					<section>
+						<h3>Events</h3>
+						<pre><code data-trim>
+server.on('somethingDone', function () {
+    //...
+});
+
+server.on('somethingElseDone', function () {
+    //...
+});
+
+server.on('somethingElse2Done', function () {
+    //...
+});
+						</code></pre>
+					</section>
+					<section>
+						<h3>Promises</h3>
+						<pre><code data-trim>
+function doSomething() { ... }
+    .then(doSomethingElse)
+    .then(doSomethingElse2)
+    .fail(onFail);
+
+						</code></pre>
+						<aside class="notes">
+							<ul>
+								<li>Statt Resultat gibt jede Funktion eine Promise zurück</li>
+								<li>then Funktion gibt Promise zurück -> chaining</li>
+								<li>Bestrebung Promises als Firstclass Objekte in den nächsten Standard von JavaScript (ES6) zu implementieren</li>
+								<li>Unsere Module sind Promise based</li>
+								<li>Kommunikation innerhalb der Module ebenfalls mit Promises</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h3>Promise States</h3>
+						<img src="images/promisestates.png" />
+						<aside class="notes">
+							<ul>
+								<li>pending: noch nicht abgearbeitet -> Weiterverarbeitung des Resultats warten</li>
+								<li>fulfilled: Die Verarbeitung erfolgreich. Auf dem Promise Objekt wird nun die then Funktion mit dem übergebenen Resultat ausgeführt.</li>
+								<li>rejected:Fehler -> die fail Funktion mit dem erhaltenen Fehler wird aufgerufen. </li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 
@@ -132,26 +204,60 @@
 
 					<section>
 						<h3>Planung</h3>
+						<ul>
+							<li>User Stories</li>
+							<li>kurze Sprints, kleine Releases</li>
+							<li>Rollen</li>
+						</ul>
 					</section>
 
 					<section>
 						<h3>Management</h3>
+						<ul>
+							<li>GitHub</li>
+							<li>Burn Down Chart</li>
 					</section>
 
 					<section>
 						<h3>Design</h3>
+						<ul>
+							<li>Programmiersprache</li>
+							<li>Performance</li>
+							<li>Security</li>
+							<li>Template Enginge</li>
+							<li>Konfiguration</li>
+						</ul>
 					</section>
 
 					<section>
 						<h3>Programmierung</h3>
+						<ul>
+							<li>Collective Code Ownership</li>
+							<li>Pair Programming</li>
+						</ul>
+						<aside class="notes">
+							Coding Standard, JSHint, Pair Programming, Code Reviews
+						</aside>
 					</section>
 
 					<section>
 						<h3>Open Source</h3>
+						<ul>
+							<li>auf GitHub, public</li>
+							<li>Organisation</li>
+							<li>MIT Lizenz</li>
+						</ul>
+						<aside class="notes">
+							Kommerziell nutzbar, Änderungen erlaubt, Distribution erlaubt, Private Nutzung. Autor nicht haftbar.
+						</aside>
 					</section>
 
 					<section>
 						<h3>Testen</h3>
+						<img src="./images/ci.png" alt="" >
+						<aside class="notes">
+							Komponententests, TDD, Red Green Refactor (Kent Beck), should-Assertion Style
+						</aside>
 					</section>
 				</section>
 
@@ -183,6 +289,57 @@
 					<h2>Fragen</h2>
 				</section>
 
+				<section>
+					<section>
+					<h2>Backup</h2>
+					</section>
+					<section>
+						<h3>Sprints</h3>
+						<table>
+							<tr>
+								<th>Sprint</th>
+								<th>Laufzeit</th>
+								<th>Ziel</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>17.02.-03.03.</td>
+								<td>Infrastruktur, Projektmanagement definieren, erste Funktionalität, Coding Standards</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>03.03.-24.03.</td>
+								<td>Daten anhand des Informationsschemas einer Datenbank generieren</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>24.03.-03.04.</td>
+								<td>Konfiguration, pg2json, usage guide</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>03.04.-28.04.</td>
+								<td>Dokumentation, pg2json abschliessen, gen-pg/template/config zusammensetzen</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>28.04.-19.05.</td>
+								<td>CLI, Filter, Update, Explain, Bugixes, Dokumentation</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>19.05.-06.06.</td>
+								<td>Dokumentation, Bugfixes</td>
+							</tr>
+						</table>
+					</section>
+					
+					<section>
+						<h3>MIT License</h3>
+						<a href="http://opensource.org/licenses/MIT">The MIT License (MIT)</a>
+					</section>
+					
+				</section>
 			</div>
 
 		</div>
