@@ -165,13 +165,23 @@ server.on('somethingElse2Done', function () {
 						</code></pre>
 					</section>
 					<section>
+						<h3>Promises Stati</h3>
+						<img src="images/promisestates.png" />
+						<aside class="notes">
+							<ul>
+								<li>pending: noch nicht abgearbeitet -> Weiterverarbeitung des Resultats warten</li>
+								<li>fulfilled: Die Verarbeitung erfolgreich. Auf dem Promise Objekt wird nun die then Funktion mit dem übergebenen Resultat ausgeführt.</li>
+								<li>rejected:Fehler -> die fail Funktion mit dem erhaltenen Fehler wird aufgerufen. </li>
+							</ul>
+						</aside>
+					</section>
+					<section>
 						<h3>Promises</h3>
 						<pre><code data-trim>
 function doSomething() { ... }
     .then(doSomethingElse)
     .then(doSomethingElse2)
     .fail(onFail);
-
 						</code></pre>
 						<aside class="notes">
 							<ul>
@@ -183,17 +193,7 @@ function doSomething() { ... }
 							</ul>
 						</aside>
 					</section>
-					<section>
-						<h3>Promise States</h3>
-						<img src="images/promisestates.png" />
-						<aside class="notes">
-							<ul>
-								<li>pending: noch nicht abgearbeitet -> Weiterverarbeitung des Resultats warten</li>
-								<li>fulfilled: Die Verarbeitung erfolgreich. Auf dem Promise Objekt wird nun die then Funktion mit dem übergebenen Resultat ausgeführt.</li>
-								<li>rejected:Fehler -> die fail Funktion mit dem erhaltenen Fehler wird aufgerufen. </li>
-							</ul>
-						</aside>
-					</section>
+					
 				</section>
 
 				<section>
@@ -209,6 +209,12 @@ function doSomething() { ... }
 							<li>kurze Sprints, kleine Releases</li>
 							<li>Rollen</li>
 						</ul>
+						<aside class="notes">
+						<ul>
+							<li>Product Owner: kannte Vorgänger, angestellt, Verhalten der Appliaktion</li>
+							<li>Scrummaster: Sprintreviews, (dailystandups), Sprintgoals/tasks</li>
+						</ul>
+						</aside>
 					</section>
 
 					<section>
@@ -310,7 +316,23 @@ function doSomething() { ... }
 
 				<section>
 					<section>
-					<h2>Backup</h2>
+						<h2>Backup</h2>
+					</section>
+					<section>
+						<h2>Promises erzeugen</h2>
+<pre><code data-trim>
+function doSomethingAsPromise() {
+    var q = Q.defer(),
+        result;
+    ...
+    q.resolve(result);
+    return q.promise;
+}
+
+doSomethingAsPromise().then(function calledWhenResolved(result) {
+    console.log(result);
+});
+</code></pre>
 					</section>
 					<section>
 						<h3>Sprints</h3>
