@@ -318,13 +318,67 @@ function doSomething() { ... }
             <img src="./images/systemoverview.jpg" alt="">
 					</section>
 					<section>
-						<h3>Module</h3>
+						<h3>Template</h3>
             <ul>
-              <li>cli</li>
-              <li>heinzelmannchen</li>
-              <li>template</li>
-              <li>generator</li>
+              <li>underscore</li>
             </ul>
+<pre><code data-trim>
+Hello <%= name %>!
+</code></pre>
+<pre><code data-trim>
+{
+    "name": "Anton"
+}
+</code></pre>
+<pre><code data-trim>
+Hello Anton!
+</code></pre>
+					</section>
+					<section>
+						<h3>Konfiguration</h3>
+            <ul>
+              <li>.heinzelrc</li>
+            </ul>
+<pre><code data-trim>
+{
+    "domains": {
+    },
+    "generators": {
+    },
+    "templates": {
+    },
+    "customScript": "./templates/customScripts/index.js"
+}
+</code></pre>
+					</section>
+					<section>
+						<h3>Domains</h3>
+						<h4>Konfiguration</h4>
+            <ul>
+              <li>.heinzelrc</li>
+            </ul>
+<pre><code data-trim>
+"domains": {
+        "data": {
+            "version": "1.0.1"
+        },
+        "generator": {
+        },
+        "extjs": {
+            "model": {
+            }
+        },
+        "backend": {
+            "entity": {
+                "template": "./templates/backend/Entity.php.tpl",
+                "output": "./webroot/backend/Entity/<%= modelName %>.php"
+            },
+            "controller": {
+            }
+        }
+    },
+}
+</code></pre>
 					</section>
 					<section>
 						<h3>Einsatz bei Kaden &amp; Partner AG</h3>
