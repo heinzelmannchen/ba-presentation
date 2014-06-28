@@ -311,19 +311,30 @@ function doSomething() { ... }
 					</section>
 					<section>
 						<h3>Template</h3>
-            <ul>
-              <li>underscore</li>
-            </ul>
 <pre><code data-trim>
-Hello <%= name %>!
-</code></pre>
-<pre><code data-trim>
-{
-    "name": "Anton"
+class <%= className %> {
+  <% _.each(attributes, function(attribute) { %>
+  public <%= attribute.type %> <%= attribute.name %>;
+  <% }) %>
 }
 </code></pre>
 <pre><code data-trim>
-Hello Anton!
+{
+    "className": "Person",
+    "attributes": [{
+      "name": "name",
+      "type": "string"
+    }, {
+      "name": "age",
+      "type": "int"
+    }]
+}
+</code></pre>
+<pre><code data-trim>
+class Person {
+  public string name;
+  public int age;
+}
 </code></pre>
 					</section>
 					<section>
