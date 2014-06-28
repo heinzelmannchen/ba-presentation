@@ -216,10 +216,8 @@ function doSomething() { ... }
 							<li>Rollen</li>
 						</ul>
 						<aside class="notes">
-						<ul>
-							<li>Product Owner: kannte Vorgänger, angestellt, Verhalten der Appliaktion</li>
-							<li>Scrummaster: Sprintreviews, (dailystandups), Sprintgoals/tasks</li>
-						</ul>
+						Product Owner: kannte Vorgänger, angestellt, Verhalten der Appliaktion, <br>
+						Scrummaster: Sprintreviews, (dailystandups), Sprintgoals/tasks
 						</aside>
 					</section>
 
@@ -389,7 +387,23 @@ doSomethingAsPromise().then(function calledWhenResolved(result) {
 						<h3>MIT License</h3>
 						<a href="http://opensource.org/licenses/MIT">The MIT License (MIT)</a>
 					</section>
+				
+					<section>
+						<h3>Unittest</h3>
+						<pre><code data-trim>
+describe('Template', function() {
+    describe('#process', function() {
+        it('should process the template', function() {
+            var template = '<%= heinzel %>',
+                data = {
+                    heinzel: 'Berti'
+                };
 
+            return heinzelTemplate.process(template, data).should.become('Berti');
+        });
+    });
+});
+						</code></pre>
 				</section>
 			</div>
 
