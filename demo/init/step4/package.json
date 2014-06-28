@@ -1,0 +1,31 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+    "hello-world": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stoeffel/hello-world"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "Stoeffel",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://github.com/stoeffel/hello-world/issues"
+  },
+  "homepage": "http://github.com/stoeffel/hello-world",
+  "devDependencies": {
+    "mocha": "~1.20.1"
+  },
+  "dependencies": {
+    "minimist": "*"
+  }
+}
